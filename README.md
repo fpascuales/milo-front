@@ -1,27 +1,42 @@
-# MiloFront
+FRONTEND GESTIÓN DE USUARIOS REALIZADO EN ANGULAR CON MATERIAL UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.2.
+CORE.-
 
-## Development server
+Creado modulo core para incluir los servicios y componentes que necesitan ser accesibles desde cualquier sección de la web.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Componente Header con modelo para mostrar menú en todas las páginas
 
-## Code scaffolding
+    SERVICES.-
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    Servicio de autenticación de usuario con llamada a endpoint 'login' y 'is-authenticated' en backend, además de gestionar el logout.
 
-## Build
+    User.service:
+    Comunicación con el servicio UserApiService para manejo de las diferentes peticiones (registro, consulta de usuarios, consulta de usuario por id, actualización de usuario, borrado de usuario).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    UserAPIService:
+    Peticiones a la API para la gestión del CRUD de usuarios.
 
-## Running unit tests
+PAGES.-
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Home:
+Página donde se muestra el listado de usuarios. Para ello se ha creado un componente 'user' en el que se mostrará Nombre, Apellidos y un botón 'Ver' para acceder a los detalles de este.
 
-## Running end-to-end tests
+Login:
+Página con formulario de acceso a la web.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Signup:
+Página con formulario de registro de usuario. Se reutiliza el componente form de la carpeta shared.
 
-## Further help
+User-detail:
+Página donde se muestra la información de cada usuario y da opción a eliminarlo (llamada a la función correspondiente de user.service), o actualizarlo (navegamos a la página user-edit)-
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+User-edit:
+Página con formulario donde se muestran los datos del usuario. Se reutiliza el componente form de la carpeta shared.
+
+SHARED > COMPONENTS > FORM:
+
+Componente para reutilizar en el formulario de registro y en la edición de la información del usuario.
+
+Se han creado estilos básicos con scss para el centrado de los componentes y sus elementos.
+
+Se ha instalado Material UI para comenzar con el diseño del frontend.

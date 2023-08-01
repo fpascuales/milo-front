@@ -1,0 +1,48 @@
+<form 
+    *ngIf="userForm"
+    [formGroup]="userForm"
+    (submit)="handleUser()"
+    class="b-form"
+>
+    <input placeholder="Nombre de usuario" formControlName="username">
+    <input placeholder="Nombre" formControlName="name">
+    <input placeholder="Apellidos" formControlName="surnames">
+    <input placeholder="Email" formControlName="email">
+    <input type="password" placeholder="Contraseña" formControlName="password">
+
+    <div class="b-form-btns">
+        <button (click)="navigateToHome()">VOLVER</button>
+        <button type="submit">{{ isUpdateMode ? 'GUARDAR' : 'REGISTRARSE' }}</button>
+    </div>
+
+    <div *ngIf="
+        !userForm.get('username')?.valid
+        && userForm.get('username')?.touched
+    ">
+        <p>El campo NOMBRE DE USUARIO es obligatorio</p>
+    </div>
+    <div *ngIf="
+        !userForm.get('name')?.valid
+        && userForm.get('name')?.touched
+    ">
+        <p>El campo NOMBRE es obligatorio</p>
+    </div>
+    <div *ngIf="
+        !userForm.get('surnames')?.valid
+        && userForm.get('surnames')?.touched
+    ">
+        <p>El campo APELLIDOS es obligatorio</p>
+    </div>
+    <div *ngIf="
+        !userForm.get('email')?.valid
+        && userForm.get('email')?.touched
+    ">
+        <p>El campo EMAIL es obligatorio</p>
+    </div>
+    <div *ngIf="
+        !userForm.get('password')?.valid
+        && userForm.get('password')?.touched
+    ">
+        <p>El campo CONTRASEÑA es obligatorio</p>
+    </div>
+</form>

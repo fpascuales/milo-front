@@ -1,0 +1,23 @@
+<div
+    *ngIf="user"
+    class="b-user-detail"
+>
+    <p>Usuario: {{ user.username }}</p>
+    <p>Nombre: {{ user.name }}</p>
+    <p>Apellidos: {{ user.surnames }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Rol: {{ user.rol }}</p>
+
+    <div class="b-user-btns">
+        <button
+            [routerLink]="['/home']"
+        >VOLVER</button>
+        <button
+            (click)="navigateToEditUser(user._id)"
+        >
+        EDITAR</button>
+        <button
+            (click)="removeUser(user._id)"
+        >ELIMINAR</button>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div>
+  <form *ngIf="loginForm" [formGroup]="loginForm" (submit)="login()" class="b-login">
+    
+    <h2>Área de Gestión</h2>
+    
+    <input placeholder="Usuario" formControlName="username">
+    
+    <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched">
+      <p *ngIf="loginForm.get('username')?.errors?.['required']">Usuario necesario</p>
+    </div>
+    
+    <input type="password" placeholder="Contraseña" formControlName="password">
+    
+    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+      <p *ngIf="loginForm.get('password')?.errors?.['required']">Contraseña necesaria</p>
+    </div>
+    
+    <p *ngIf="formError">{{ formError }}</p>
+    
+    <button type="submit">INICIAR SESIÓN</button>
+  </form>
+</div>

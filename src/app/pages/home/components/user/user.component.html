@@ -1,0 +1,12 @@
+<div
+    *ngIf="user"
+    class="b-user"
+>
+    <div class="b-user b-user__data">
+        <p>{{ user.name }}</p>
+        <p>{{ user.surnames }}</p>
+    </div>
+    <button (click)="navigateToDetail(user._id)">
+        VER
+    </button>
+</div>

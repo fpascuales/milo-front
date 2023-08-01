@@ -1,0 +1,13 @@
+<div class="b-menu">
+    <a
+        *ngFor="let link of headerLinksElements"
+        [routerLink]="[link.url]"
+        routerLinkActive="b-nav__link--active"
+    >{{ link.content }}</a>
+
+    <button
+        *ngIf="isLogged"
+        class="b-nav__btn"
+        (click)="logout()"
+    >SALIR</button> 
+</div>
